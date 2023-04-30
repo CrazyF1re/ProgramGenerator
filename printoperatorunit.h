@@ -12,6 +12,7 @@ public:
     {
         return generateShift(level) + "printf( \"" + m_text + "\" );\n";
     }
+
 private:
  std::string m_text;
 

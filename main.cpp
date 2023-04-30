@@ -29,7 +29,10 @@ std::string generateProgram()
     myClass.add( method, ClassUnit::PROTECTED );
     return myClass.compile();
 }
+
+
 int main(int argc, char *argv[])
 {
     std::cout<<generateProgram()<<std::endl;
+    return 0;
 }
