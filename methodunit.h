@@ -3,7 +3,7 @@
 #include <unit.h>
 #include <vector>
 
-class MethodUnit_Cpp: public Unit
+class MethodUnit: public Unit
 {
 public:
     enum Modifier {
@@ -12,7 +12,7 @@ public:
         VIRTUAL = 1 << 2
     };
 public:
-    MethodUnit_Cpp(const std::string& name,const std::string&  returnType,Flags flags )
+    MethodUnit(const std::string& name,const std::string&  returnType,Flags flags )
         :m_name(name),m_returnType(returnType),m_flags(flags){}
 
     void add(const std::shared_ptr<Unit>& unit,Flags = 0 )

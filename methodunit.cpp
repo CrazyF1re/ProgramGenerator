@@ -1,6 +1,6 @@
 #include "methodunit.h"
 
-std::string MethodUnit_Cpp::compile(unsigned int level) const
+std::string MethodUnit::compile(unsigned int level) const
 {
     std::string result = generateShift(level);
     if(m_flags & STATIC){

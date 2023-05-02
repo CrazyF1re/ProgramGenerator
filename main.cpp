@@ -8,25 +8,25 @@
 
 std::string generateProgram()
 {
-    ClassUnit_Cpp myClass("myClass");
+    ClassUnit myClass("myClass");
     myClass.add(
-        std::make_shared< MethodUnit_Cpp >( "testFunc1", "void", 0 ),
-        ClassUnit_Cpp::PUBLIC
+        std::make_shared< MethodUnit >( "testFunc1", "void", 0 ),
+        ClassUnit::PUBLIC
     );
     myClass.add(
-        std::make_shared< MethodUnit_Cpp >( "testFunc2", "void", MethodUnit_Cpp::STATIC ),
-        ClassUnit_Cpp::PRIVATE
+        std::make_shared< MethodUnit >( "testFunc2", "void", MethodUnit::STATIC ),
+        ClassUnit::PRIVATE
     );
     myClass.add(
-        std::make_shared< MethodUnit_Cpp >( "testFunc3", "void", MethodUnit_Cpp::VIRTUAL |
-        MethodUnit_Cpp::CONST ),
-        ClassUnit_Cpp::PUBLIC
+        std::make_shared< MethodUnit >( "testFunc3", "void", MethodUnit::VIRTUAL |
+        MethodUnit::CONST ),
+        ClassUnit::PUBLIC
     );
-    auto method = std::make_shared< MethodUnit_Cpp >( "testFunc4", "void",
-    MethodUnit_Cpp::STATIC );
+    auto method = std::make_shared< MethodUnit >( "testFunc4", "void",
+    MethodUnit::STATIC );
 
-    method->add( std::make_shared< PrintOperatorUnit_Cpp >( R"(Hello, world!\n)" ) );
-    myClass.add( method, ClassUnit_Cpp::PROTECTED );
+    method->add( std::make_shared< PrintOperatorUnit >( R"(Hello, world!\n)" ) );
+    myClass.add( method, ClassUnit::PROTECTED );
     return myClass.compile();
 }
 
