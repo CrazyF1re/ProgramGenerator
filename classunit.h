@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-class ClassUnit : public Unit
+class ClassUnit_Cpp : public Unit
 {
 public:
     enum AccessModifier{
@@ -16,7 +16,7 @@ public:
     const std::vector <std::string> ACCESS_MODIFIERS ={ "public","protected", "private" };
 
 public:
-    explicit ClassUnit(const std::string& name): m_name(name)
+    explicit ClassUnit_Cpp(const std::string& name): m_name(name)
     {
         m_fields.resize( ACCESS_MODIFIERS.size());
     }
