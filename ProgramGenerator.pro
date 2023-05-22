@@ -11,20 +11,17 @@ CONFIG += c++17
 SOURCES += \
     classunit.cpp \
     main.cpp \
-    mainwindow.cpp \
     methodunit.cpp \
     printoperatorunit.cpp \
     unit.cpp
 
 HEADERS += \
     classunit.h \
-    mainwindow.h \
     methodunit.h \
     printoperatorunit.h \
     unit.h
 
-FORMS += \
-    mainwindow.ui
+FORMS +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
