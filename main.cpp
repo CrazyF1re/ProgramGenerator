@@ -1,10 +1,9 @@
-#include "mainwindow.h"
-
-#include <QApplication>
 #include <iostream>
 #include "classunit.h"
 #include "methodunit.h"
 #include "printoperatorunit.h"
+
+
 
 std::string generateProgram()
 {
@@ -31,7 +30,7 @@ std::string generateProgram()
 }
 
 
-int main(int argc, char *argv[])
+int main()
 {
     std::cout<<generateProgram()<<std::endl;
     return 0;

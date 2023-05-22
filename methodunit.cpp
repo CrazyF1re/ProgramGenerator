@@ -1,5 +1,7 @@
 #include "methodunit.h"
 
+
+
 std::string MethodUnit::compile(unsigned int level) const
 {
     std::string result = generateShift(level);

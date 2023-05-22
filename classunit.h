@@ -7,13 +7,13 @@
 class ClassUnit : public Unit
 {
 public:
-    enum AccessModifier{
+    enum AccessModifier{//enum of methods of access
         PUBLIC,
         PROTECTED,
         PRIVATE
     };
 
-    const std::vector <std::string> ACCESS_MODIFIERS =
+    const std::vector <std::string> ACCESS_MODIFIERS = // vector of strings
     {
       "public",
       "protected",
@@ -26,9 +26,34 @@ public:
         m_fields.resize( ACCESS_MODIFIERS.size());
     }
 
-    void add (const std::shared_ptr<Unit>& unit, Flags flags);// add some func into class with
+    void add (const std::shared_ptr<Unit>& unit, Flags flags)// add some func into class with
+    {
+        int accessModifier = PRIVATE;
+        if (flags<ACCESS_MODIFIERS.size())
+        {
+            accessModifier = flags;
+        }
 
-    std::string compile(unsigned int level = 0) const;
+        m_fields[accessModifier].push_back(unit);
+    }
+
+    std::string compile(unsigned int level = 0) const
+    {
+        std::string result = generateShift( level ) + "class " + m_name + " {\n";
+        for( size_t i = 0; i < ACCESS_MODIFIERS.size(); ++i ) {
+        if( m_fields[ i ].empty() ) {
+        continue;
+        }
+        result += ACCESS_MODIFIERS[ i ] + ":\n";
+        for( const auto& f : m_fields[ i ] ) {
+        result += f->compile( level + 1 );
+        }
+        result += "\n";
+        }
+        result += generateShift( level ) + "};\n";
+        return result;
+
+    }
 
 private:
     std::string m_name; // Name of class
