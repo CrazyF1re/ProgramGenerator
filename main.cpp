@@ -1,7 +1,7 @@
 #include <iostream>
 #include "sharp_class_unit.h"
 #include "sharp_method_unit.h"
-#include "print_operator_unit.h"
+#include "sharp_print_operator_unit.h"
 
 
 
@@ -18,7 +18,7 @@ std::string generateProgram()
         sharp_class_unit::PRIVATE
     );
     myClass.add(
-        std::make_shared< sharp_method_unit >( "testFunc3", "void", sharp_method_unit::VIRTUAL ),
+        std::make_shared< sharp_method_unit >( "testFunc3", "void", sharp_method_unit::VIRTUAL),
         sharp_class_unit::PRIVATE
     );
     myClass.add(
@@ -30,9 +30,9 @@ std::string generateProgram()
         sharp_class_unit::PROTECTED
     );
     auto method = std::make_shared< sharp_method_unit >( "testFunc6", "void",
-    sharp_method_unit::STATIC );
+    sharp_method_unit::VIRTUAL );
 
-    method->add( std::make_shared< PrintOperatorUnit >( R"(Hello, world!\n)" ) );
+    method->add( std::make_shared< sharp_print_operator_unit >( R"(Hello, world!\n)" ) );
     myClass.add( method, sharp_class_unit::PUBLIC );
     return myClass.compile();
 }

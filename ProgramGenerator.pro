@@ -16,12 +16,15 @@ HEADERS += \
     class_unit.h \
     cpp_class_unit.h \
     cpp_method_unit.h \
+    cpp_print_operator_unit.h \
     java_class_unit.h \
     java_method_unit.h \
+    java_print_operator_unit.h \
     method_unit.h \
     print_operator_unit.h \
     sharp_class_unit.h \
     sharp_method_unit.h \
+    sharp_print_operator_unit.h \
     unit.h
 
 FORMS +=
