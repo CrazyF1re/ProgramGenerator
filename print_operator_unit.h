@@ -1,5 +1,5 @@
-#ifndef PRINT_OPERATO_RUNIT_H
-#define PRINT_OPERATO_RUNIT_H
+#ifndef PRINT_OPERATOR_UNIT_H
+#define PRINT_OPERATOR_UNIT_H
 #include <iostream>
 #include "unit.h"
 
@@ -18,4 +18,4 @@ private:
 
 };
 
-#endif // PRINT_OPERATO_RUNIT_H
+#endif // PRINT_OPERATOR_UNIT_H

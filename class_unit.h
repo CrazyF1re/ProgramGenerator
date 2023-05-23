@@ -19,7 +19,7 @@ public:
 
     virtual std::string compile(unsigned int level = 0) const{}
 
-    virtual ~ClassUnit(){}
+
 protected:
     std::string m_name; // Name of class
     using Fields = std::vector<std::shared_ptr<Unit>>; // vector of shared ptr in which we will add some funcions (inherited from Unit)

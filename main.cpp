@@ -1,41 +1,39 @@
 #include <iostream>
 #include "sharp_class_unit.h"
-#include "method_unit.h"
-#include "print_operato_runit.h"
+#include "sharp_method_unit.h"
+#include "print_operator_unit.h"
 
 
 
 std::string generateProgram()
 {
 
-      sharp_class_unit myClass("myClass",sharp_class_unit::INTERNAL);
+      sharp_class_unit myClass("myClass");
     myClass.add(
-        std::make_shared< MethodUnit >( "testFunc1", "void", 0 ),
+        std::make_shared< sharp_method_unit>( "testFunc1", "void", 0 ),
         sharp_class_unit::PUBLIC
     );
     myClass.add(
-        std::make_shared< MethodUnit >( "testFunc2", "void", MethodUnit::STATIC ),
+        std::make_shared< sharp_method_unit >( "testFunc2", "void", sharp_method_unit::STATIC ),
         sharp_class_unit::PRIVATE
     );
     myClass.add(
-        std::make_shared< MethodUnit >( "testFunc3", "void", MethodUnit::VIRTUAL |
-        MethodUnit::CONST ),
-        sharp_class_unit::INTERNAL
+        std::make_shared< sharp_method_unit >( "testFunc3", "void", sharp_method_unit::VIRTUAL ),
+        sharp_class_unit::PRIVATE
     );
     myClass.add(
-        std::make_shared< MethodUnit >( "testFunc4", "void", MethodUnit::VIRTUAL |
-        MethodUnit::CONST ),
-        sharp_class_unit::INTERNAL_PROTECTED
-    );
-    myClass.add(
-        std::make_shared< MethodUnit >( "testFunc5", "void", MethodUnit::STATIC ),
+        std::make_shared< sharp_method_unit >( "testFunc4", "void", sharp_method_unit::STATIC ),
         sharp_class_unit::PROTECTED
     );
-    auto method = std::make_shared< MethodUnit >( "testFunc6", "void",
-    MethodUnit::STATIC );
+    myClass.add(
+        std::make_shared< sharp_method_unit >( "testFunc5", "void", sharp_method_unit::STATIC ),
+        sharp_class_unit::PROTECTED
+    );
+    auto method = std::make_shared< sharp_method_unit >( "testFunc6", "void",
+    sharp_method_unit::STATIC );
 
     method->add( std::make_shared< PrintOperatorUnit >( R"(Hello, world!\n)" ) );
-    myClass.add( method, sharp_class_unit::PRIVATE_PROTECTED );
+    myClass.add( method, sharp_class_unit::PUBLIC );
     return myClass.compile();
 }
 

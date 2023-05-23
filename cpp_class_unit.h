@@ -56,7 +56,6 @@ public:
 
         return result;
     }
-    ~cpp_class_unit(){}
 };
 
 #endif // CPP_CLASS_UNIT_H
