@@ -12,9 +12,12 @@ SOURCES += \
     main.cpp
 
 HEADERS += \
-    classunit.h \
-    methodunit.h \
-    printoperatorunit.h \
+    class_unit.h \
+    cpp_class_unit.h \
+    java_class_unit.h \
+    method_unit.h \
+    print_operato_runit.h \
+    sharp_class_unit.h \
     unit.h
 
 FORMS +=
