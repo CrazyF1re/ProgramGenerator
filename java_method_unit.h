@@ -5,11 +5,7 @@
 class java_method_unit:public MethodUnit
 {
 public:
-    enum Modifier {// enum with modificators of method
-        STATIC   = 1,
-        FINAL    = 1<<1,
-        ABSTRACT = 1<<2
-    };
+
 public:
     java_method_unit(const std::string & name, const std::string& returnType,Flags flags):MethodUnit(name,returnType,flags){}
 
@@ -21,15 +17,15 @@ public:
     std::string compile(unsigned int level = 0) const // compile method into string
     {
         std::string result = generateShift(level);// add shift
-        if (m_flags & STATIC)
+        if (m_flags & MethodUnit::STATIC)
         {
             result+="static ";
         }
-        else if (m_flags & FINAL)
+        else if (m_flags & MethodUnit::FINAL)
         {
             result+="final ";
         }
-        else if (m_flags & ABSTRACT)
+        else if (m_flags & MethodUnit::ABSTRACT)
         {
             result+="abstract ";
         }

@@ -6,12 +6,6 @@
 class cpp_class_unit :public ClassUnit
 {
 public:
-    enum AccessModifier{//enum of methods of access
-        PUBLIC,
-        PROTECTED,
-        PRIVATE
-    };
-
     const std::vector <std::string> ACCESS_MODIFIERS = // vector of strings
     {
       "public",
@@ -27,7 +21,7 @@ public:
 
     void add (const std::shared_ptr<Unit>& unit, Flags flags)
         {
-            int accessModifier = PRIVATE; // set accessModifier private
+            int accessModifier = ClassUnit::PRIVATE; // set accessModifier private
             if (flags<ACCESS_MODIFIERS.size())// if flags less then size of vector ACCESS_MODIFIERS then set accessModifier
             {
                 accessModifier = flags;

@@ -5,26 +5,16 @@
 class sharp_class_unit:public ClassUnit
 {
 public:
-    //enum of methods of access
-    enum AccessModifier
-    {
-        PUBLIC,
-        INTERNAL,
-        INTERNAL_PROTECTED,
-        PROTECTED,
-        PRIVATE_PROTECTED,
-        PRIVATE
-
-    };
     // vector of strings methods access
     const std::vector <std::string> ACCESS_MODIFIERS =
     {
       "public",
+      "protected",
+      "private",
       "internal",
       "internal protected",
-      "protected",
-      "private protected",
-      "private"
+      "private protected"
+
     };
 
 

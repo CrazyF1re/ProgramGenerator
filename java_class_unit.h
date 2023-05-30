@@ -6,13 +6,6 @@
 class java_class_unit:public ClassUnit
 {
 public:
-    //enum of methods of access
-    enum AccessModifier
-    {
-        PUBLIC,
-        PROTECTED,
-        PRIVATE
-    };
     // vector of strings
     const std::vector <std::string> ACCESS_MODIFIERS =
     {
@@ -23,7 +16,7 @@ public:
 
 public:
     //constructor with name of class and modificator of access (default - public)
-    java_class_unit(const std::string & name, Flags f = PUBLIC):ClassUnit(name)
+    java_class_unit(const std::string & name, Flags f = ClassUnit::PUBLIC):ClassUnit(name)
     {
         m_fields.resize( ACCESS_MODIFIERS.size());
         class_modificator = f;
@@ -32,7 +25,7 @@ public:
     //add function
     void add (const std::shared_ptr<Unit>& unit, Flags flags )
         {
-            int accessModifier = PRIVATE; // set accessModifier private
+            int accessModifier = ClassUnit::PRIVATE; // set accessModifier private
             if (flags<ACCESS_MODIFIERS.size())// if flags less then size of vector ACCESS_MODIFIERS then set accessModifier
             {
                 accessModifier = flags;

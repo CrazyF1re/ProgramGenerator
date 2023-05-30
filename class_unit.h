@@ -6,7 +6,18 @@
 
 class ClassUnit : public Unit
 {
+public:
+    enum AccessModifier
+    {
+        PUBLIC,// all
+        PROTECTED,// all
+        PRIVATE,// all
+        INTERNAL,// C#
+        INTERNAL_PROTECTED,// C#
+        PRIVATE_PROTECTED//C#
 
+
+    };
 
 public:
     explicit ClassUnit(const std::string& name): m_name(name){}

@@ -18,13 +18,16 @@ HEADERS += \
     cpp_factory.h \
     cpp_method_unit.h \
     cpp_print_operator_unit.h \
+    factory.h \
     java_class_unit.h \
+    java_factory.h \
     java_method_unit.h \
     java_print_operator_unit.h \
     method_unit.h \
     print_operator_unit.h \
     programfactory.h \
     sharp_class_unit.h \
+    sharp_factory.h \
     sharp_method_unit.h \
     sharp_print_operator_unit.h \
     unit.h
