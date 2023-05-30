@@ -6,7 +6,7 @@
 class cpp_class_unit :public ClassUnit
 {
 public:
-    const std::vector <std::string> ACCESS_MODIFIERS = // vector of strings
+    const std::vector <std::string> ACCESS_MODIFIERS = // vector of strings (types of access to methods)
     {
       "public",
       "protected",
@@ -14,12 +14,13 @@ public:
     };
 public:
 
-    cpp_class_unit(const std::string & name):ClassUnit(name)
+    cpp_class_unit(const std::string & name):ClassUnit(name) //constructor call default constructor from ClassUnit
     {
-        m_fields.resize( ACCESS_MODIFIERS.size());
+        m_fields.resize( ACCESS_MODIFIERS.size());//resize number of fields because for each language it has deffernt
+                                                  //numbers of modifiers
     }
 
-    void add (const std::shared_ptr<Unit>& unit, Flags flags)
+    void add (const std::shared_ptr<Unit>& unit, Flags flags) // add function with its modificator of access
         {
             int accessModifier = ClassUnit::PRIVATE; // set accessModifier private
             if (flags<ACCESS_MODIFIERS.size())// if flags less then size of vector ACCESS_MODIFIERS then set accessModifier
@@ -27,9 +28,9 @@ public:
                 accessModifier = flags;
             }
 
-            m_fields[accessModifier].push_back(unit);
+            m_fields[accessModifier].push_back(unit);//add to i-th vector of functions one more
         }
-    std::string compile(unsigned int level = 0) const
+    std::string compile(unsigned int level = 0) const // output our class
     {
         std::string result = generateShift( level ) + "class " + m_name + " {\n"; // identify string wich will contain name of class and {
         for( size_t i = 0; i < ACCESS_MODIFIERS.size(); ++i )// cycle though each ACCESS_MODIFIER

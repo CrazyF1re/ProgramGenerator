@@ -24,9 +24,6 @@ public:
 
 int main()
 {
-    //auto Myclass = std::shared_ptr<cpp_factory>();
-    //std::cout<<generateProgram2(Myclass)<<std::endl;
-
     ProgramFactory* p = new ProgramFactory(new cpp_factory);
     std::cout<<p->GenerateProgram();
     delete p;

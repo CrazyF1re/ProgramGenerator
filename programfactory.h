@@ -8,8 +8,8 @@
 class ProgramFactory
 {
 public:
-    ProgramFactory(factory* fac):f(fac)
-    {}
+    ProgramFactory(factory* fac):f(fac){}
+
     std::string GenerateProgram()
     {
         auto myClass = f->Create_Class("myClass");

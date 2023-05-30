@@ -6,8 +6,8 @@ class cpp_method_unit : public MethodUnit
 {
 
 public:
-    cpp_method_unit(const std::string & name, const std::string& returnType,Flags flags)
-        :MethodUnit(name,returnType,flags){}
+    cpp_method_unit(const std::string & name, const std::string& returnType,Flags flags)//constructor which call default
+        :MethodUnit(name,returnType,flags){}                                            //constructor from MethodUnit
 
 
     void add(const std::shared_ptr<Unit>& unit,Flags = 0 )// add realisation of method
@@ -29,12 +29,12 @@ public:
             result+=" const";
         }
         result+=" {\n";
-        for( const auto& b:m_body)
+        for( const auto& b:m_body)// cycle for each string into body of function add compile it into string and add to result
         {
             result+=b->compile(level+1);
         }
-        result+=generateShift(level)+"}\n";
-        return result;
+        result+=generateShift(level)+"}\n";//generate shift and close bracket
+        return result;//return string in which we have finished function with realization and shifts
     }
 
 };

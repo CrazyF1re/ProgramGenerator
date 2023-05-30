@@ -20,12 +20,13 @@ public:
     };
 
 public:
+    //here is just constructor with const name of Class and m_name = name
     explicit ClassUnit(const std::string& name): m_name(name){}
 
 protected:
     std::string m_name; // Name of class
     using Fields = std::vector<std::shared_ptr<Unit>>; // vector of shared ptr in which we will add some funcions (inherited from Unit)
-    std::vector< Fields > m_fields; // vector of Fields
+    std::vector< Fields > m_fields; // vector of Fields (for each fiels like public protected etc.)
 
 };
 

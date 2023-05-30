@@ -4,7 +4,6 @@
 
 class java_method_unit:public MethodUnit
 {
-public:
 
 public:
     java_method_unit(const std::string & name, const std::string& returnType,Flags flags):MethodUnit(name,returnType,flags){}
