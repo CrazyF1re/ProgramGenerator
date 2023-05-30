@@ -23,10 +23,6 @@ public:
         myClass->add(method,ClassUnit::PROTECTED);
         return myClass->compile();
     }
-    ~ProgramFactory()
-    {
-        delete f;
-    }
 private:
     factory* f;
 };

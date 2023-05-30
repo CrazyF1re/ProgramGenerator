@@ -6,25 +6,13 @@
 #include "sharp_factory.h"
 #include "programfactory.h"
 
-class test1
-{
-public:
-  virtual void func1();
-  virtual ~test1(){}
-};
-class test2:public test1
-{
-public:
-    void func1(){}
-    ~test2(){}
 
-};
 
 
 
 int main()
 {
-    ProgramFactory* p = new ProgramFactory(new cpp_factory);
+    ProgramFactory* p = new ProgramFactory(new sharp_factory);
     std::cout<<p->GenerateProgram();
     delete p;
     return 0;
