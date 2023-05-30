@@ -8,9 +8,6 @@ class PrintOperatorUnit:public Unit
 public:
     explicit PrintOperatorUnit (const std::string& text): m_text(text){}// constructor
 
-    virtual std::string compile(unsigned int level = 0)const// function to compile definition of function
-    {}
-
 protected:
  std::string m_text; // string wich will  print
 

@@ -7,12 +7,7 @@ class sharp_method_unit:public MethodUnit
 public:
     enum Modifier {// enum with modificators of method
         STATIC   = 1,
-        VIRTUAL = 2
-    };
-    const std::vector <std::string> MODIFIERS =
-    {
-      "static",
-      "virtual",
+        VIRTUAL = 1<<1
     };
 public:
     sharp_method_unit(const std::string & name, const std::string& returnType,Flags flags):MethodUnit(name,returnType,flags){}
@@ -25,9 +20,13 @@ public:
     std::string compile(unsigned int level = 0) const // compile method into string
     {
         std::string result = generateShift(level);// add shift
-        if (m_flags !=0)
+        if (m_flags & STATIC)
         {
-            result+=MODIFIERS[m_flags-1] + " ";
+            result+="static ";
+        }
+        else if (m_flags & VIRTUAL)
+        {
+            result+="virtual ";
         }
         result += m_returnType+" ";
         result += m_name + "()";//if method is virtual it has no realization

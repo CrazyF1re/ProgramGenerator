@@ -9,16 +9,7 @@ class ClassUnit : public Unit
 
 
 public:
-    explicit ClassUnit(const std::string& name): m_name(name)
-    {
-
-    }
-
-    virtual void add (const std::shared_ptr<Unit>& unit, Flags flags){}// add some func into class with
-
-
-    virtual std::string compile(unsigned int level = 0) const{}
-
+    explicit ClassUnit(const std::string& name): m_name(name){}
 
 protected:
     std::string m_name; // Name of class
