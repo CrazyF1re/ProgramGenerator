@@ -1,11 +1,19 @@
-#include "mainwindow.h"
+#include <iostream>
 
-#include <QApplication>
 
-int main(int argc, char *argv[])
+#include "cpp_factory.h"
+#include "java_factory.h"
+#include "sharp_factory.h"
+#include "programfactory.h"
+
+
+
+
+
+int main()
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+    ProgramFactory* p = new ProgramFactory(new sharp_factory);
+    std::cout<<p->GenerateProgram();
+    delete p;
+    return 0;
 }

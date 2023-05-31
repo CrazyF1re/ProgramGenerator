@@ -9,14 +9,30 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    main.cpp \
-    mainwindow.cpp
+    main.cpp
 
 HEADERS += \
-    mainwindow.h
+      \
+    class_unit.h \
+    cpp_class_unit.h \
+    cpp_factory.h \
+    cpp_method_unit.h \
+    cpp_print_operator_unit.h \
+    factory.h \
+    java_class_unit.h \
+    java_factory.h \
+    java_method_unit.h \
+    java_print_operator_unit.h \
+    method_unit.h \
+    print_operator_unit.h \
+    programfactory.h \
+    sharp_class_unit.h \
+    sharp_factory.h \
+    sharp_method_unit.h \
+    sharp_print_operator_unit.h \
+    unit.h
 
-FORMS += \
-    mainwindow.ui
+FORMS +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
