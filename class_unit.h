@@ -21,7 +21,7 @@ public:
 
 public:
     //here is just constructor with const name of Class and m_name = name
-    explicit ClassUnit(const std::string& name): m_name(name){}
+    ClassUnit(const std::string& name): m_name(name){}
 
 protected:
     std::string m_name; // Name of class
