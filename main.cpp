@@ -12,7 +12,7 @@
 
 int main()
 {
-    ProgramFactory* p = new ProgramFactory(new cpp_factory);
+    ProgramFactory* p = new ProgramFactory(new sharp_factory);
     std::cout<<p->GenerateProgram_1();
     std::cout<<p->GenerateProgram_2();
     delete p;

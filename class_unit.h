@@ -13,7 +13,7 @@ public:
         PROTECTED,// all
         PRIVATE,// all
         INTERNAL,// C#
-        INTERNAL_PROTECTED,// C#
+        PROTECTED_INTERNAL,// C#
         PRIVATE_PROTECTED//C#
 
 
