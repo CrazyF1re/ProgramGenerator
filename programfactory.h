@@ -10,8 +10,9 @@ class ProgramFactory
 public:
     ProgramFactory(factory* fac):f(fac){}
 
-    std::string GenerateProgram()
+    std::string GenerateProgram_1()
     {
+        std::cout<<"FIRST TEST\n\n";
         auto myClass = f->Create_Class("myClass");
         myClass->add(f->Create_Method("testFunc1", "void", 0),ClassUnit::PUBLIC);
         myClass->add(f->Create_Method("testFunc2", "void", MethodUnit::STATIC),ClassUnit::PRIVATE);
@@ -22,6 +23,18 @@ public:
         method->add(print);
         myClass->add(method,ClassUnit::PROTECTED);
         return myClass->compile();
+    }
+    std::string GenerateProgram_2()
+    {
+        std::cout<<"\nSECOND TEST\n\n";
+        auto Person = f->Create_Class("Person");
+        auto Account = f->Create_Class("Account");
+        Person->add(Account,ClassUnit::PRIVATE);
+        Person->add(f->Create_Method("Person","",0),ClassUnit::PUBLIC);
+        Person->add(f->Create_Method("print","void",0),ClassUnit::PUBLIC);
+        Account->add(f->Create_Method("Account","",0),ClassUnit::PUBLIC);
+
+        return Person->compile();
     }
 private:
     factory* f;
