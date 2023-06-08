@@ -11,10 +11,7 @@ public:
 public:
     virtual ~Unit() = default; // virtual destructor couse we wiil inherit from this class
 
-    virtual void add( const std::shared_ptr< Unit >&,Flags = 0) //
-    {
-        throw std::runtime_error("Not supported");
-    }
+    virtual void add( const std::shared_ptr< Unit >&,Flags = 0){}
 
     virtual std::string compile(Flags level =0)const = 0;
 

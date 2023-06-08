@@ -8,7 +8,10 @@
 class ProgramFactory
 {
 public:
-    ProgramFactory(factory* fac):f(fac){}
+    ProgramFactory(std::unique_ptr<factory> fac)
+    {
+        f = std::move(fac);
+    }
 
     std::string GenerateProgram_1()
     {
@@ -37,7 +40,7 @@ public:
         return Person->compile();
     }
 private:
-    factory* f;
+    std::unique_ptr<factory> f;
 };
 
 #endif // PROGRAMFACTORY_H
