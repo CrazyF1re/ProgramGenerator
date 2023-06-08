@@ -5,28 +5,20 @@
 
 class java_class_unit:public ClassUnit
 {
-public:
-    // vector of strings
-    const std::vector <std::string> ACCESS_MODIFIERS =
-    {
-      "public",
-      "protected",
-      "private"
-    };
 
 public:
     //constructor with name of class and modificator of access (default - public)
-    java_class_unit(const std::string & name, Flags f = ClassUnit::PUBLIC):ClassUnit(name)
+    java_class_unit(const std::string & name, Flags f = PUBLIC):ClassUnit(name)
     {
-        m_fields.resize( ACCESS_MODIFIERS.size());
+        m_fields.resize( PRIVATE +1);
         class_modificator = f;
     }
 
     //add function
     void add (const std::shared_ptr<Unit>& unit, Flags flags )
         {
-            int accessModifier = ClassUnit::PRIVATE; // set accessModifier private
-            if (flags<ACCESS_MODIFIERS.size())// if flags less then size of vector ACCESS_MODIFIERS then set accessModifier
+            Flags accessModifier = ClassUnit::PRIVATE; // set accessModifier private
+            if (flags<accessModifier)// if flags less then size of vector ACCESS_MODIFIERS then set accessModifier
             {
                 accessModifier = flags;
             }
@@ -37,14 +29,35 @@ public:
     //compile into string
     std::string compile(unsigned int level = 0) const
     {
-        std::string result = generateShift( level ) +ACCESS_MODIFIERS[class_modificator] + " "+ "class " + m_name + " {\n"; // identify string wich will contain name of class and {
-        for( size_t i = 0; i < ACCESS_MODIFIERS.size(); ++i )// cycle though each ACCESS_MODIFIER
+        std::string result ="";
+        if (class_modificator == PRIVATE)
+        {
+            result = generateShift( level ) + "private class " + m_name + " {\n";
+        }
+        else
+        {
+            result = generateShift( level ) +"public class " + m_name + " {\n";
+        }
+        // identify string wich will contain name of class and {
+        for( size_t i = 0; i < m_fields.size(); ++i )// cycle though each ACCESS_MODIFIER
         {
             if( m_fields[ i ].empty() )// if vector is empty just skip one iteration
             {
                 continue;
             }
-            result += ACCESS_MODIFIERS[ i ] + ":\n";// add access modificator into resul + shift on the one string
+            if (i == PUBLIC)// add access modificator into resul + shift on the one string
+            {
+                result+= "public:\n";
+            }
+            else if (i== PROTECTED)
+            {
+                result+="protected:\n";
+            }
+            else if (i == PRIVATE)
+            {
+                result+="private:\n";
+            }
+
             for( const auto& f : m_fields[ i ] )// cycle into m_fields
             {
                 result += f->compile( level + 1 );//call compile funtion for unit ptr stored into m_fields[i]

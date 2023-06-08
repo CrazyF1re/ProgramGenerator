@@ -6,7 +6,7 @@
 class PrintOperatorUnit:public Unit
 {
 public:
-    explicit PrintOperatorUnit (const std::string& text): m_text(text){}// constructor
+    PrintOperatorUnit (const std::string& text): m_text(text){}// constructor
 
 protected:
  std::string m_text; // string wich will  print

@@ -17,14 +17,14 @@ public:
     std::string compile(unsigned int level = 0) const // compile method into string
     {
         std::string result = generateShift(level);// add shift
-        if(m_flags & MethodUnit::STATIC){ // here is just conjunction of m_flags and modificator
+        if(m_flags & STATIC){ // here is just conjunction of m_flags and modificator
             result+="static ";}
-        else if(m_flags & MethodUnit::VIRTUAL){//one more conjunction
+        else if(m_flags & VIRTUAL){//one more conjunction
             result+="virtual ";
         }
         result += m_returnType+" ";
         result += m_name + "()";//if method is virtual it has no realization
-        if(m_flags & MethodUnit::CONST)//last conjunction
+        if(m_flags & CONST)//last conjunction
         {
             result+=" const";
         }
